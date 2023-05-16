@@ -43,11 +43,12 @@
 			let container, stats;
 			let camera, scene, raycaster, renderer;
 
-			let INTERSECTED;
 			let theta = 0;
+			let INTERSECTED;
 
 			const pointer = new THREE.Vector2();
-			const radius = 100;
+			const radius = 500;
+			const frustumSize = 1000;
 
 			init();
 			animate();
@@ -57,7 +58,8 @@
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
-				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 10000 );
+				const aspect = window.innerWidth / window.innerHeight;
+				camera = new THREE.OrthographicCamera( frustumSize * aspect / - 2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / - 2, 1, 1000 );
 
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xf0f0f0 );
@@ -98,7 +100,7 @@
 				stats = new Stats();
 				container.appendChild( stats.dom );
 
-				document.addEventListener( 'mousemove', onPointerMove );
+				document.addEventListener( 'pointermove', onPointerMove );
 
 				//
 
@@ -108,7 +110,13 @@
 
 			function onWindowResize() {
 
-				camera.aspect = window.innerWidth / window.innerHeight;
+				const aspect = window.innerWidth / window.innerHeight;
+
+				camera.left = - frustumSize * aspect / 2;
+				camera.right = frustumSize * aspect / 2;
+				camera.top = frustumSize / 2;
+				camera.bottom = - frustumSize / 2;
+
 				camera.updateProjectionMatrix();
 
 				renderer.setSize( window.innerWidth, window.innerHeight );
