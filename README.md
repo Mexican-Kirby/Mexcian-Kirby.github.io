@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl - interactive cubes</title>
+		<title>Mexcian-Kirby.github.io - interactive cubes</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="main.css">
@@ -18,7 +18,7 @@
 	<body>
 
 		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> webgl - interactive cubes
+			<a href="https://Mexcian-Kirby.github.io" target="_blank" rel="noopener">Mexcian-Kirby.github.io</a> webgl - interactive cubes
 		</div>
 
 		<!-- Import maps polyfill -->
